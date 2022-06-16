@@ -12,6 +12,8 @@ import pymunk
 import pymunk.pyglet_util
 from pymunk import Vec2d
 
+import sys
+
 
 class Main(pyglet.window.Window):
     def __init__(self):
@@ -77,7 +79,9 @@ class Main(pyglet.window.Window):
             f = 200000
             body.apply_impulse_at_local_point((f, 0), (0, 0))
         elif symbol == key.ESCAPE:
+            sys.exit()
             pyglet.app.exit()
+
         elif symbol == pyglet.window.key.P:
             pyglet.image.get_buffer_manager().get_color_buffer().save(
                 "box2d_vertical_stack.png"
@@ -93,3 +97,14 @@ class Main(pyglet.window.Window):
 if __name__ == "__main__":
     main = Main()
     pyglet.app.run()
+
+
+            # if event.type == pygame.QUIT:
+            #     running = False
+            #     pygame.quit()
+            #     sys.exit()
+                
+            # elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+            #     running = False
+            #     pygame.quit()
+            #     sys.exit()

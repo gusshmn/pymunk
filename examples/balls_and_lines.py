@@ -8,6 +8,9 @@ import pygame
 import pymunk
 from pymunk import Vec2d
 
+
+import sys
+
 X, Y = 0, 1
 ### Physics collision types
 COLLTYPE_DEFAULT = 0
@@ -60,8 +63,14 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
+                pygame.quit()
+                sys.exit()
+                
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                 running = False
+                pygame.quit()
+                sys.exit()
+                
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_p:
                 pygame.image.save(screen, "balls_and_lines.png")
             elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
